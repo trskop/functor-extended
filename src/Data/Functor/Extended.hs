@@ -35,6 +35,7 @@ module Data.Functor.Extended
     -- ** Apply value to a function in a functor
     , (<#>)
     , (<##>)
+    , (<&#>)
     )
   where
 
@@ -134,3 +135,12 @@ infixl 4 <#>
 x <##> f = ($ x) `fmap` f
 infixl 4 <##>
 {-# INLINE (<##>) #-}
+
+-- | Variant of '<#>' with fixity as function '<&>' has.
+--
+-- This operator can be also found in
+-- <https://hackage.haskell.org/package/lens lens> library under the name @??@.
+(<&#>) :: Functor f => f (a -> b) -> a -> f b
+(<&#>) = (<#>)
+infixl 1 <&#>
+{-# INLINE (<&#>) #-}
