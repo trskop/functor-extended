@@ -58,6 +58,9 @@ infixl 4 <$$>
 {-# INLINE (<$$>) #-}
 
 -- | Flipped version of '<$>' with different fixity.
+--
+-- This operator can be also found in
+-- <https://hackage.haskell.org/package/lens lens> library.
 (<&>) :: Functor f => f a -> (a -> b) -> f b
 (<&>) = flip fmap
 infixl 1 <&>
